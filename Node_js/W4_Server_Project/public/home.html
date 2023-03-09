@@ -1,20 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <title>Orange Groves Tea</title>
-        <link rel="stylesheet" href="Node_js\w4_kat_ayer_styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <meta name="description" content="Kat's Mock Store">
     </head>
     <body>
-        <div id="site-header">
-            <div id="brand">
-                <h1>Orange Groves Tea</h1>
+        <nav class="navbar navbar-expand-lg">
+            <div id="site-header" class="fluid-container" >
+                <div class="brand">
+                    <h1><a href="/">Orange Groves Tea</a></h1>
+                </div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ethics">Ethics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/store">Shop</a>
+                    </li>
+                </ul>
             </div>
-            <div id="site-links">
-                <a href="/about">About Us</a>
-                <a href="/ethics">Ethics</a>
-                <a href="/store">Shop</a>
-            </div>
-        </div>
+        </nav>
         
     </body>
 </html>
