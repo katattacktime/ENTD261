@@ -1,0 +1,1 @@
+WSH.Echo("Hello class! This is Jscript using windows host script (WSH)");

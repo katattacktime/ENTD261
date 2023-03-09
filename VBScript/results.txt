@@ -1,0 +1,9 @@
+ Volume in drive C is OS
+ Volume Serial Number is 648A-B306
+
+ Directory of C:\ENTD261
+
+02/09/2023  02:08 PM    <DIR>          .
+02/09/2023  02:08 PM                 0 results.txt
+               1 File(s)              0 bytes
+               1 Dir(s)  429,491,048,448 bytes free
