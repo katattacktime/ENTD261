@@ -9,6 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <meta name="description" content="Kat's Mock Store">
+<!--Not my preferred method, but linking to my local stylesheet wasn't functioning, so this will have to do-->
         <style>
             #site-header {
                 background-color: #b05504;
@@ -32,11 +33,23 @@
                 color: beige;
             }
             .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-                height: 20px;
+                max-width: 500px;
             }
             .row{
                 margin: 0% 2% 0% 2%;
             }
+            #homeExtraInfo {
+                margin-top: 2.5em;
+            }
+            footer {
+                background-color: #b05504;
+                height:4em;
+                margin-left: 0%;
+                margin-right: 0%;
+                margin-bottom: 1em;
+                color: white;
+            }
+           
         </style>
     </head>
     <body>
@@ -65,7 +78,7 @@
         </nav>
         
         <!--CAROUSEL-->
-        <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+        <div id="homeCarousel" class="carousel slide" data-ride="carousel"height="10%">
             <ol class="carousel-indicators">
                 <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#homeCarousel" data-slide-to="1"></li>
@@ -100,10 +113,34 @@
                 <span class="sr-only">Next</span>
             </a>
         </div><!-- /.carousel -->
+
+    <div id="homeExtraInfo" class="container">
+        <!-- Info below carousel -->
         <div class="row">
-            <div class="col-md-4"><p>Some Text Here</p></div>
-            <div class="col-md-4"><p>Tea is good</p></div>
-            <div class="col-md-4"><p>The only reason I made this site is because I was drinking tea.</p></div>
+            <div class="col-md-4">
+                <h2 class="justify-content-center">Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="justify-content-center">Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                    euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="justify-content-center">Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                    fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
         </div>
+        <footer class="footer container-fluid">
+            <p class="justify-content-center" style="text-align: center;">(c) Kat Ayer - 2023</p>
+        </footer>
     </body>
 </html>
