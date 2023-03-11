@@ -9,29 +9,30 @@
 // Setup
 var express = require('express');
 var http = require('http');
-var http = require('http');
 var app = express();
 var path = require('path');
 var port = process.env.PORT || 23456;
 
 // Start server
-http.createServer(app).listen(port);
+app.use("/styles", express.static(path.join(__dirname + 'public/CSS')));
+app.listen(port);
 console.log('Express server listening on port ' + port + '.');
 console.log('Visit http://localhost:' + port + ' in a browser to view.');
 
 // Fetch HTML and assign pages
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '/public/home.html'));
+    res.sendFile(path.join(__dirname, '/public/HTML/home.html'));
 });
 
 app.get('/about', function (req, res) {
-    res.sendFile(path.join(__dirname, '/public/about.html'));
+    res.sendFile(path.join(__dirname, '/public/HTML/about.html'));
 });
 
 app.get('/ethics', function (req, res) {
-    res.sendFile(path.join(__dirname, '/public/ethics.html'));
+    res.sendFile(path.join(__dirname, '/public/HTML/ethics.html'));
 });
 
 app.get('/store', function (req, res) {
-    res.sendFile(path.join(__dirname, '/public/shop.html'));
+    res.sendFile(path.join(__dirname, '/public/HTML/shop.html'));
 });
+
