@@ -59,47 +59,71 @@ limit = int(sizeLimit)
 operator = input(
     '\nSelect one by typing the symbol in brackets and pressing Enter: \n - Greater than [>] \n - Less than [<] \n - Equal to [=] \n - Equal or greater than [>=] \n - Equal or less than [<=] \n - Not Equal [=/=]\n')
 
+# Turn source into path object instead of string
 pathSource = pathlib.Path(source)
 
-def get_items(root: pathlib.Path):
-    for item in root.iterdir():
-        if os.path.getsize(item) > limit*1024:
-            print(f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
-            if item.is_dir():
-                yield from get_items(item)
-
+# Each of the following functions are the same except their comparison operator on the 4th line.
 if operator == str('>'):
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) > limit*1024:
+                print(f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir():  # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
     get_items(pathSource)
-#    for item in pathSource.iterdir():
-#        if os.path.getsize(item) > limit*1024:
-#            print(f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
-#            if item.is_dir():
 
 elif operator == str('<'):
-    filter(lambda x: os.path.getsize < sizeLimit(1024),
-           [os.path.join(source, x) for x in pathList])
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) < limit*1024:
+                print(
+                    f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir():  # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
+    get_items(pathSource)
 
 elif operator == str('='):
-    filter(lambda x: os.path.getsize == sizeLimit(1024),
-           [os.path.join(source, x) for x in pathList])
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) == limit*1024:
+                print(
+                    f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir():  # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
+    get_items(pathSource)
 
 elif operator == str('<='):
-    filter(lambda x: os.path.getsize <= sizeLimit(1024),
-           [os.path.join(source, x) for x in pathList])
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) <= limit*1024:
+                print(
+                    f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir(): # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
+    get_items(pathSource)
 
 elif operator == str('>='):
-    filter(lambda x: os.path.getsize >= sizeLimit(1024),
-           [os.path.join(source, x) for x in pathList])
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) >= limit*1024:
+                print(
+                    f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir():  # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
+    get_items(pathSource)
 
 elif operator == str('=/='):
-    filter(lambda x: os.path.getsize != sizeLimit(1024),
-           [os.path.join(source, x) for x in pathList])
+    def get_items(root: pathlib.Path):
+        for item in root.iterdir():
+            if os.path.getsize(item) != limit*1024:
+                print(
+                    f"{item}\n - {'Folder' if item.is_dir() else 'File'}\n - {os.path.getsize(item)/1024} kB\n")
+                if item.is_dir():  # Recursively looks inside any directories it encounters
+                    yield from get_items(item)
+    get_items(pathSource)
 
 else:
     print('Please only type one of the symbols in the brackets. No spaces. Try again.')
     exit()
-# Search and loop until all files are found
 
-
-# Loading animation?
 
